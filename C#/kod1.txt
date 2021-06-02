@@ -1,0 +1,50 @@
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+ 
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ayracı giriniz: "); //metnimizin hangi karaktere göre ayrılmasını istiyorsak giriyoruz
+            char ayrac = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("Metni giriniz: "); //metnimizi giriyoruz
+            string metin = Console.ReadLine();
+            int kelimeSayisi = 0; //kelimeSayisi değişkeninin başlangıç değerini 0 olarak giriyoruz
+            int k = 0;
+            while (k < metin.Length)
+            {
+                if (metin[k] == ayrac)  //burada for döngüsüne soktuğumuz if'imizin içinde olan metin[i] değeri ayraca eşit ise kelimeSayisi değişkenini 1 arttırarark devam ediyoruz
+                {
+                    kelimeSayisi++; 
+                }
+                k++;
+            }
+            kelimeSayisi++;//split metodu 1 eksik değer vereceği için sayıyı eşitliyoruz
+            string[] dizi = new string[kelimeSayisi]; //yeni bir dizi oluşturuyoruz burada for döngüsünden aldığımız kelimeSayisi değeri dizinin kaç elemanlı olacağını söylüyor
+            int sayac = 0;           //sayacı 0 a eşitliyoruz
+            int i =0;
+            while (i < metin.Length)
+            {
+                if (metin[i] != ayrac)            //burada for döngüsüne aldığımız metin[i] değerimiz ayraca eşit mi değil mi onu kontrol ediyoruz
+                {
+                    dizi[sayac] += metin[i];       //eğer eşit değilse dizi[sayac] değerimize metin[i] değerimizi ekliyoruz burada harf harf yazılıyor ayraca gelince else çalışıyor
+                }
+                else
+                {
+                    sayac++;                    //else çalışınca ilk kelimemizi ayırmış oluyoruz ve diziye sırayla atamasını gerçekleştiriyoruz
+                }
+                i++;
+            }
+            for (int j = 0; j < kelimeSayisi; j++)
+            {
+                Console.WriteLine(dizi[j]);
+            }
+            Console.ReadKey();
+
+        }
+    }
+
+}

@@ -1,0 +1,27 @@
+
+<form id="frmsehir"> 
+<label for="ad"></label>
+<input type="text" id="ad" required/>
+<button type="submit">EKLE</button>
+
+
+</form>
+<ul id="sehirler"></ul>
+
+
+
+<script>
+  var frmsehir=document.getElementById("frmsehir");
+  var inputAd=document.getElementById("ad");
+  var ulSehirler=document.getElementById("sehirler")
+  frmsehir.addEventListener("submit",function(event){
+    event.preventDefault();
+    var sehirAd=inputAd.value;
+    var li=document.createElement("li");
+    li.innerHTML=sehirAd;
+    ulSehirler.appendChild(li);
+  })
+
+
+
+</script>
