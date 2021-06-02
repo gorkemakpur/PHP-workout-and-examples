@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Final Ödevi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/index.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md bg-dark fixed-top navbar-dark">
+	<a class="navbar-brand" href="index.html">LOGO</a>
+	
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#kapanacakGrp">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+	
+	<div id="kapanacakGrp" class="collapse navbar-collapse">
+		<ul class="navbar-nav mx-auto" id="menuLU">
+			<li class="nav-item"><a class="nav-link">Ana Sayfa</a></li>
+			<li class="nav-item"><a class="nav-link">Galeri</a></li>
+			<li class="nav-item"><a class="nav-link">İvarişim</a></li>
+		</ul>
+		<form class="form-inline my-2 my-md-0" action="#">
+			<input class="form-control mx-md-3" placeholder="Aramak için" type="text" required>
+			<button class="btn btn-success px-3 my-2 my-md-0" type="submit">Ara</button>
+		</form>
+	</div>
+</nav>
+
+<div class="container mt-5 pt-5">
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Satır sayısı</label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" placeholder="Satır sayısı" id="satir">
+		</div>
+		<label class="col-sm-2 col-form-label">Sütun sayısı</label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" placeholder="Sütun sayısı" id="sutun">
+		</div>
+		<label class="col-sm-1 col-form-label">İçerik</label>
+		<div class="col-sm-1">
+			<input type="text" class="form-control" id="icerik">
+		</div>
+	</div>
+	
+	<div class="form-check-inline col-sm-12">
+		<label class="col-sm-2 col-form-label">Kenarlık biçimi</label>
+		<label class="form-check-label col-sm-2">
+			<input type="radio" class="form-check-input" name="kenarlik" value="1">Kenarlıksız
+		</label>
+		<label class="form-check-label col-sm-2">
+			<input type="radio" class="form-check-input" name="kenarlik" value="2">Yatay kenarlık
+		</label>
+		<label class="form-check-label col-sm-2">
+			<input type="radio" class="form-check-input" name="kenarlik" value="3">Tam kenarlık
+		</label>
+	</div>
+
+	<div class="form-check-inline col-sm-12">
+		<label class="col-sm-2 col-form-label">Stil biçimi</label>
+		<label class="form-check-label col-sm-2">
+			<input type="radio" class="form-check-input" name="bicim" value="1">Boş
+		</label>
+		<label class="form-check-label col-sm-2">
+			<input type="radio" class="form-check-input" name="bicim" value="2">Zebra deseni
+		</label>
+		<label class="form-check-label col-sm-2">
+			<input type="radio" class="form-check-input" name="bicim" value="3">Koyu desen
+		</label>
+		<label class="form-check-label col-sm-2">
+			<input type="radio" class="form-check-input" name="bicim" value="4">Koyu zebra deseni
+		</label>
+	</div>
+	
+	<div class="form-check-inline col-sm-12">
+		<label class="form-check-label col-sm-2">Hover olsun mu?</label>
+		<label class="form-check-label col-sm-2">
+			<input type="checkbox" class="form-check-input" id="hvAktif">Evet
+		</label>
+	</div>
+	
+	<div class="form-group row m-5">
+		<button onClick="ekle()" class="btn btn-danger">Tabloyu aşağıya ekle</button>
+	</div>
+</div>
+
+<div class="container">
+	<div id="konum">
+		
+	</div>
+</div>
+
+<script>
+	var satir = document.getElementById("satir");
+	var sutun = document.getElementById("sutun");
+	var icerik = document.getElementById("icerik");
+	var konum = document.getElementById("konum");
+	var kenarliklar = document.getElementsByName('kenarlik');
+	var bicimler = document.getElementsByName('bicim');
+	var hover = document.getElementById("hvAktif");
+	var table = document.createElement('table');
+	var thead = document.createElement('thead'); 
+	var tbody = document.createElement('tbody'); 
+	table.setAttribute('class', 'table');
+	
+	function ekle(){
+		
+	for(var i = 0; i < satir.value; i++)
+	{
+		var tr = document.createElement('tr');
+		for(var j = 0; j < sutun.value; j++)
+		{
+			if(i == 0)
+			{
+				var th = document.createElement('th');
+				th.textContent = icerik.value;
+				tr.appendChild(th);
+				thead.appendChild(tr);
+			}
+			else
+			{
+				var td = document.createElement('td'); 
+				td.textContent = icerik.value;
+				tr.append(td);
+				tbody.appendChild(tr);
+			}
+				
+		}
+			
+	}
+		var sk;
+		var sb;
+		for(var i = 0; i < kenarliklar.length; i++)
+		{
+			if(kenarliklar[i].checked)
+				sk = kenarliklar[i].value;
+		}
+		for(var i = 0; i < bicimler.length; i++)
+		{
+			if(bicimler[i].checked)
+			sb = bicimler[i].value;
+		}
+		
+		
+		
+		
+		
+		
+		
+		if(sk == 1)
+		{
+			table.classList.add('table-borderless');
+		}
+		else if(sk==2)
+		{
+			table.classList.add('table-striped');
+		}
+		else if(sk == 3)
+		{
+			table.classList.add('table-bordered');
+		}
+		
+		
+		
+		if(sb == 2)
+		{
+			table.classList.add('table-striped');
+		}
+		else if(sb == 3)
+		{
+			table.classList.add('table-dark');
+		}
+		else if(sb == 4)
+		{
+			table.classList.add('table-striped');
+			table.classList.add('table-dark');
+		}
+		
+		if(hover.checked == true)
+		{
+			table.classList.add('table-hover');
+		}
+		
+	
+		var satirekle = document.createElement('button');
+		var sutunekle = document.createElement('button');
+		var satirsil = document.createElement('button');
+		var sutunsil = document.createElement('button');
+		
+		sutunsil.setAttribute('class', 'btn btn-danger');
+		sutunsil.setAttribute('onClick', 'sutunsilbasildiginda()');
+		sutunsil.textContent = 'Sütun Sil';
+		
+		satirsil.setAttribute('class', 'btn btn-danger');
+		satirsil.setAttribute('onClick', 'satirsilbasildiginda()');
+		satirsil.textContent = 'Satır Sil';
+		
+		sutunekle.setAttribute('class', 'btn btn-primary');
+		sutunekle.setAttribute('onClick', 'sutuneklebasildiginda()');
+		sutunekle.textContent = 'Sütun Ekle';
+		
+		satirekle.setAttribute('class', 'btn btn-primary');
+		satirekle.setAttribute('onClick', 'satireklebasildiginda()');
+		satirekle.textContent = 'Satır Ekle';
+		
+		table.appendChild(thead);
+		table.appendChild(tbody);
+		konum.appendChild(table);
+		konum.appendChild(satirekle);
+		konum.appendChild(sutunekle);
+		konum.appendChild(satirsil);
+		konum.appendChild(sutunsil);
+		
+}
+	
+function satireklebasildiginda(){                                                                        
+
+		var tr = document.createElement('tr');
+		for(var i = 0; i < sutun.value; i++)
+		{
+		var td = document.createElement('td'); 
+		td.textContent = icerik.value;
+		tr.append(td);
+		tbody.appendChild(tr);
+		}
+		table.appendChild(tbody);
+		konum.appendChild(table);
+}
+function sutuneklebasildiginda(){
+		
+		var th = document.createElement('th');
+		th.textContent = icerik.value;
+	var tr = document.querySelectorAll('tr');
+
+		tr[0].appendChild(th);
+
+		
+		
+		for(var i = 1; i < tr.length; i++)
+		{
+			var td = document.createElement('td');
+			td.textContent = icerik.value;
+			tr[i].appendChild(td);
+		}
+		
+	}
+function satirsilbasildiginda(){
+		tbody.lastChild.remove();
+	}
+function sutunsilbasildiginda(){
+		var tr = document.querySelectorAll('tr');
+		for(var i = 0; i < tr.length; i++){
+			tr[i].lastChild.remove();	
+		}
+	}
+	
+	
+</script>
+
+</body>
+</html>

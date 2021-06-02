@@ -1,0 +1,18 @@
+@charset "utf-8";
+body{background-image:url("1.jfif");}
+.sablon{width:100%;height: 100%;}
+.baslik{float: left; width:90%;height:50px;background-color:green;font-size:40px;text-align: center;}
+.ustmenu{padding-top:10px; float: left;width:20%;height:30px;background-color:red;}
+.orta{width:90%;height:100%; background-color:red;float:left;}
+.urun{margin-right:20px; margin-top:10px; float:left;width:30%;height:200px; background-color:gray;}
+.ortasag{float:right;width:9%;height:70px;border:solid;border-radius:7px;background-color:yellow;font-size:20px;}
+.alt{float:left;margin-top:10px;width:100%;text-align:center;border-style: solid;font-size:50px;border-radius:7px;background-color:red;color:aliceblue;}
+ul{background-color:aqua;float:left;list-style: none;padding:0;margin:0;border:0;width:90%;height:30px;}
+ul a{text-decoration: none;display: block;font-size:14px;color:red;}
+ul li{float:left;margin-left:10%;border-style:none;cursor:pointer;}
+ul li a:hover{background-color:red;color:aqua;}
+.arama{float:right;}
+.tbtasarim{width:180px;height:25px;border-radius:4px 0px 0px 4px;border:1px solid #000000;outline: none;}
+.butontasarim{width:35px;height:25px;border-radius:0px 4px 4px 0px; border:1px solid #000000;outline:none;cursor:pointer;}
+
+
