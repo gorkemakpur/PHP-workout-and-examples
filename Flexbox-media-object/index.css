@@ -1,0 +1,34 @@
+.media
+{
+    background-color: antiquewhite;
+    display: flex;
+    padding: 15px;
+    align-items: flex-start;
+    max-width: 500px;
+    margin:20px;
+    border-radius: 8px;
+}
+.media img
+{
+    width: 100px;
+    margin-right: 20px;    
+}
+.media-body h3
+{
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+.right-img
+{
+    order:1;
+}
+
+.media-inner
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+.color
+{
+    background-color: aquamarine;
+}
